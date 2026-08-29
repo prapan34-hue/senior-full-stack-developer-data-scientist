@@ -1,52 +1,58 @@
 <div align="center">
-  <img src="docs/architecture-diagram.svg" width="880" alt="Architecture diagram" />
-  <h1>Senior Full-Stack Developer / Data Scientist Portfolio</h1>
-  <p>
-    <strong>Full-Stack • Data Science • Dashboard • AI Prototyping</strong>
-  </p>
-  <p>
-    โปรเจคนี้สะท้อนความสามารถในการสร้างระบบ end-to-end ตั้งแต่ข้อมูล การวิเคราะห์ การพยากรณ์ ไปจนถึงการแสดงผลบนหน้า Dashboard
-    ที่พร้อมสำหรับนำเสนอผลงานในเชิงธุรกิจและงานวิจัย
-  </p>
+  <img src="docs/architecture-diagram.svg" width="900" alt="Architecture diagram" />
 </div>
 
-## Highlights
+# Senior Full-Stack Developer / Data Scientist Portfolio
 
-- FastAPI backend สำหรับ API และการประมวลผลข้อมูล
-- React dashboard สำหรับการแสดงข้อมูลแบบ interactive
-- Machine Learning workflow สำหรับพยากรณ์และประเมินความเสี่ยง
-- PostgreSQL integration สำหรับระบบข้อมูลเชิง production-like
-- โครงสร้างโปรเจคที่จัดระเบียบและพร้อมนำเสนอต่อผู้ชม
+<p align="center">
+  <strong>Full-Stack • Data Science • Dashboard • AI Prototyping</strong>
+</p>
 
-## Project Showcase
+<p align="center">
+  โปรเจคนี้สะท้อนความสามารถในการสร้างระบบ end-to-end จากข้อมูล การวิเคราะห์ การพยากรณ์ ไปจนถึงการแสดงผลบน Dashboard
+  ที่พร้อมสำหรับนำเสนอผลงานในเชิงธุรกิจ งานวิจัย และการสาธิตความสามารถทางเทคนิค
+</p>
+
+## Portfolio Summary
 
 <div align="center">
   <table>
     <tr>
-      <td width="50%"><img src="docs/dashboard-preview-1.svg" width="100%" alt="Dashboard preview 1" /></td>
-      <td width="50%"><img src="docs/dashboard-preview-2.svg" width="100%" alt="Dashboard preview 2" /></td>
+      <td width="33%">
+        <img src="docs/dashboard-preview-1.svg" width="100%" alt="Dashboard preview 1" />
+      </td>
+      <td width="33%">
+        <img src="docs/dashboard-preview-2.svg" width="100%" alt="Dashboard preview 2" />
+      </td>
+      <td width="33%">
+        <img src="docs/architecture-diagram.svg" width="100%" alt="Architecture diagram preview" />
+      </td>
     </tr>
   </table>
 </div>
 
-## Projects Included
+### Highlights
+
+- Backend Engineering: FastAPI, REST API, validation, และ data service architecture
+- Frontend Development: React, Vite, interactive UI, dashboard flow
+- Data Science: feature design, synthetic data generation, machine learning forecasting
+- Database Integration: PostgreSQL และ SQLite
+- Product Presentation: โครงสร้างโปรเจคที่จัดระเบียบและมีภาพประกอบชัดเจน
+
+## Featured Projects
 
 ### 1) Chonburi Dengue Watch
-- ระบบเฝ้าระวังและพยากรณ์โรคไข้เลือดออกจังหวัดชลบุรี
-- ผสาน FastAPI, React, SQLite และ Machine Learning
-- เหมาะสำหรับการนำเสนอเชิง data-driven และสาธารณสุขดิจิทัล
+- ระบบเฝ้าระวังและพยากรณ์โรคไข้เลือดออกในจังหวัดชลบุรี
+- ผสาน FastAPI, React, SQLite และ ML workflow
+- เหมาะสำหรับการสาธิตการทำงานแบบ end-to-end และผลงานเชิงวิชาการ
 
 ### 2) PostgreSQL + FastAPI
 - ตัวอย่าง API ที่เชื่อมต่อ PostgreSQL อย่างมีโครงสร้าง
-- สะท้อนความสามารถด้าน backend architecture, database design และ API service
+- สะท้อนความสามารถด้าน database integration และ backend architecture
 
 ### 3) React Dashboard District Filter
-- ตัวอย่าง dashboard สำหรับข้อมูลภาคพื้นที่แบบรายอำเภอ
-- เน้นการกรองข้อมูลและการสรุปสถานการณ์เพื่อดูแนวโน้มได้เร็ว
-
-## Architecture Overview
-
-![Architecture diagram](docs/architecture-diagram.svg)
+- Dashboard สำหรับการกรองข้อมูลรายอำเภอและสรุปสถานการณ์แบบชัดเจน
+- เหมาะสำหรับการนำเสนอข้อมูลเชิงพื้นที่และการแสดงแนวโน้ม
 
 ## Tech Stack
 
@@ -58,7 +64,7 @@
 
 ## Presentation Page
 
-คุณสามารถเปิดหน้า presentation แบบสั้น ๆ ได้ที่:
+อ่านโครงการในรูปแบบ landing page แบบสั้น ๆ ได้ที่:
 
 - [docs/portfolio-landing.html](docs/portfolio-landing.html)
 
@@ -100,12 +106,12 @@ docker compose up -d
 uvicorn app.main:app --reload --port 8000
 ```
 
-## Notes
+## Important Note
 
 ข้อมูลในโครงการหลักเป็นข้อมูลจำลองเพื่อการสาธิต การทดลอง และการนำเสนอเท่านั้น
-ไม่ควรใช้เป็นฐานข้อมูลเชิงปฏิบัติจริงสำหรับตัดสินใจทางสุขภาพหรือสาธารณสุขโดยตรง หากต้องใช้งานจริงควรมีข้อมูลจริง การตรวจสอบทางวิชาการ และการร่วมมือกับผู้เชี่ยวชาญที่เกี่ยวข้อง
+ไม่ควรใช้เป็นฐานข้อมูลเชิงปฏิบัติจริงสำหรับการตัดสินใจทางสุขภาพหรือสาธารณสุขโดยตรง หากต้องใช้งานจริงควรมีข้อมูลจริง การตรวจสอบทางวิชาการ และการร่วมมือกับผู้เชี่ยวชาญที่เกี่ยวข้อง
 
-## Summary
+## Final Summary
 
 Repository นี้แสดงให้เห็นถึงความสามารถต่อเนื่องใน 4 ด้านสำคัญ:
 
@@ -114,4 +120,4 @@ Repository นี้แสดงให้เห็นถึงความสา
 - Data Science / ML
 - Product Presentation
 
-ซึ่งเหมาะสำหรับใช้เป็น portfolio project ในการสมัครงาน หรือการนำเสนอผลงานต่อผู้ชม
+ซึ่งเหมาะอย่างยิ่งสำหรับใช้เป็น portfolio project ในการสมัครงาน การแสดงผลงาน หรือการนำเสนอให้กับผู้ชม
