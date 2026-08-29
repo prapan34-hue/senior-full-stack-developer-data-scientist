@@ -1,0 +1,56 @@
+<svg width="900" height="560" viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg1" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#081b2d"/>
+      <stop offset="100%" stop-color="#0f2f49"/>
+    </linearGradient>
+    <linearGradient id="chart1" x1="0" x2="1">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#14b8a6"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="560" rx="28" fill="url(#bg1)"/>
+  <rect x="40" y="30" width="820" height="500" rx="22" fill="#0f172a" opacity="0.32"/>
+  <text x="70" y="82" fill="#dbeafe" font-size="22" font-family="Segoe UI, sans-serif">Dengue Watch Dashboard</text>
+  <text x="70" y="110" fill="#93c5fd" font-size="14" font-family="Segoe UI, sans-serif">จังหวัดชลบุรี • สถานการณ์ล่าสุด</text>
+
+  <rect x="70" y="135" width="180" height="90" rx="16" fill="#0f172a" stroke="#38bdf8"/>
+  <text x="100" y="170" fill="#93c5fd" font-size="13">ผู้ป่วยรายงานล่าสุด</text>
+  <text x="100" y="205" fill="#f8fafc" font-size="28" font-weight="700">242 คน</text>
+
+  <rect x="270" y="135" width="180" height="90" rx="16" fill="#0f172a" stroke="#2dd4bf"/>
+  <text x="300" y="170" fill="#99f6e4" font-size="13">คาดการณ์สัปดาห์หน้า</text>
+  <text x="300" y="205" fill="#f8fafc" font-size="28" font-weight="700">268 คน</text>
+
+  <rect x="470" y="135" width="180" height="90" rx="16" fill="#0f172a" stroke="#f87171"/>
+  <text x="500" y="170" fill="#fecaca" font-size="13">พื้นที่เสี่ยงสูง</text>
+  <text x="500" y="205" fill="#f8fafc" font-size="28" font-weight="700">4 อำเภอ</text>
+
+  <rect x="670" y="135" width="180" height="90" rx="16" fill="#0f172a" stroke="#a78bfa"/>
+  <text x="700" y="170" fill="#ddd6fe" font-size="13">อำเภอที่รายงาน</text>
+  <text x="700" y="205" fill="#f8fafc" font-size="28" font-weight="700">11/11</text>
+
+  <rect x="70" y="255" width="590" height="220" rx="20" fill="#0f172a" stroke="#334155"/>
+  <text x="95" y="285" fill="#e2e8f0" font-size="18" font-weight="600">ผู้ป่วยจริงเทียบค่าพยากรณ์</text>
+  <path d="M110 410 C180 402, 210 350, 260 335 S360 290, 420 305 S510 310, 590 200" fill="none" stroke="url(#chart1)" stroke-width="4"/>
+  <path d="M110 430 C180 420, 210 390, 260 360 S360 330, 420 342 S510 332, 590 265" fill="none" stroke="#fbbf24" stroke-width="4" stroke-dasharray="8 8"/>
+  <g fill="#f8fafc" font-size="11" font-family="Segoe UI, sans-serif">
+    <text x="115" y="455">ก.ค</text>
+    <text x="200" y="455">ส.ค</text>
+    <text x="285" y="455">ก.ย</text>
+    <text x="370" y="455">ต.ค</text>
+    <text x="455" y="455">พ.ย</text>
+    <text x="540" y="455">ธ.ค</text>
+  </g>
+
+  <rect x="680" y="255" width="150" height="220" rx="20" fill="#0f172a" stroke="#334155"/>
+  <text x="705" y="285" fill="#e2e8f0" font-size="18">แจ้งเตือน</text>
+  <g fill="#e2e8f0" font-size="12" font-family="Segoe UI, sans-serif">
+    <circle cx="705" cy="320" r="5" fill="#ef4444"/>
+    <text x="720" y="325">บางละมุง</text>
+    <circle cx="705" cy="350" r="5" fill="#f59e0b"/>
+    <text x="720" y="355">ศรีราชา</text>
+    <circle cx="705" cy="380" r="5" fill="#22c55e"/>
+    <text x="720" y="385">เมืองชลบุรี</text>
+  </g>
+</svg>

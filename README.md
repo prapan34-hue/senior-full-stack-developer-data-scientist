@@ -1,72 +1,77 @@
-# Senior Full-Stack Developer / Data Scientist Portfolio
+<div align="center">
+  <img src="docs/architecture-diagram.svg" width="880" alt="Architecture diagram" />
+  <h1>Senior Full-Stack Developer / Data Scientist Portfolio</h1>
+  <p>
+    <strong>Full-Stack • Data Science • Dashboard • AI Prototyping</strong>
+  </p>
+  <p>
+    โปรเจคนี้สะท้อนความสามารถในการสร้างระบบ end-to-end ตั้งแต่ข้อมูล การวิเคราะห์ การพยากรณ์ ไปจนถึงการแสดงผลบนหน้า Dashboard
+    ที่พร้อมสำหรับนำเสนอผลงานในเชิงธุรกิจและงานวิจัย
+  </p>
+</div>
 
-โปรเจคนี้จัดทำขึ้นเพื่อแสดงความสามารถด้าน Full-Stack Development, Data Science, Machine Learning, API Design และ Dashboard Development ผ่านผลงานที่สามารถใช้งานได้จริงและเหมาะสำหรับการนำเสนอผลงานในเชิงธุรกิจหรืองานวิจัย
+## Highlights
 
-## ภาพรวมของโครงการ
+- FastAPI backend สำหรับ API และการประมวลผลข้อมูล
+- React dashboard สำหรับการแสดงข้อมูลแบบ interactive
+- Machine Learning workflow สำหรับพยากรณ์และประเมินความเสี่ยง
+- PostgreSQL integration สำหรับระบบข้อมูลเชิง production-like
+- โครงสร้างโปรเจคที่จัดระเบียบและพร้อมนำเสนอต่อผู้ชม
 
-Repository นี้ประกอบด้วยผลงาน 3 ส่วนหลัก:
+## Project Showcase
 
-1. Chonburi Dengue Watch
-   - ระบบเฝ้าระวังและพยากรณ์โรคไข้เลือดออกในจังหวัดชลบุรี
-   - ใช้ FastAPI + React + Machine Learning
-2. PostgreSQL + FastAPI
-   - ตัวอย่างระบบ API ที่เชื่อมต่อฐานข้อมูล PostgreSQL
-   - เหมาะสำหรับการแสดงแนวทางการออกแบบ backend และ database service
-3. React Dashboard District Filter
-   - Dashboards สำหรับนำเสนอข้อมูลแบบรายอำเภอและตัวกรองข้อมูล
+<div align="center">
+  <table>
+    <tr>
+      <td width="50%"><img src="docs/dashboard-preview-1.svg" width="100%" alt="Dashboard preview 1" /></td>
+      <td width="50%"><img src="docs/dashboard-preview-2.svg" width="100%" alt="Dashboard preview 2" /></td>
+    </tr>
+  </table>
+</div>
 
-## สถาปัตยกรรมระบบ
+## Projects Included
 
-![สถาปัตยกรรมระบบ](docs/architecture-diagram.svg)
+### 1) Chonburi Dengue Watch
+- ระบบเฝ้าระวังและพยากรณ์โรคไข้เลือดออกจังหวัดชลบุรี
+- ผสาน FastAPI, React, SQLite และ Machine Learning
+- เหมาะสำหรับการนำเสนอเชิง data-driven และสาธารณสุขดิจิทัล
 
-## โครงสร้างโปรเจค
+### 2) PostgreSQL + FastAPI
+- ตัวอย่าง API ที่เชื่อมต่อ PostgreSQL อย่างมีโครงสร้าง
+- สะท้อนความสามารถด้าน backend architecture, database design และ API service
 
-```text
-senior-full-stack-developer-data-scientist/
-├── README.md
-├── .gitignore
-├── generate_chonburi_dengue_mock.py
-├── docs/
-│   └── architecture-diagram.svg
-├── chonburi-dengue-watch/
-│   ├── README.md
-│   ├── backend/
-│   └── frontend/
-├── postgresql-fastapi/
-│   └── postgresql/
-└── react-dashboard-district-filter/
-    └── frontend/
-```
+### 3) React Dashboard District Filter
+- ตัวอย่าง dashboard สำหรับข้อมูลภาคพื้นที่แบบรายอำเภอ
+- เน้นการกรองข้อมูลและการสรุปสถานการณ์เพื่อดูแนวโน้มได้เร็ว
 
-## ความสามารถที่แสดงผ่านโปรเจค
+## Architecture Overview
 
-- Backend Development: FastAPI, REST API, Validation, Error Handling
-- Frontend Development: React, Vite, UI Components, Dashboard
-- Data Engineering: Synthetic dataset generation, data cleaning, feature preparation
-- Machine Learning: Random Forest, model training, prediction workflow
-- Database Design: SQLite และ PostgreSQL
-- Presentation Ready: โครงสร้างโปรเจค, README ที่อ่านง่าย, ระบบที่สามารถทดลองได้
+![Architecture diagram](docs/architecture-diagram.svg)
 
-## โครงการหลัก: Chonburi Dengue Watch
+## Tech Stack
 
-โครงการนี้เป็นส่วนสำคัญที่สุดของ repository โดยมีวัตถุประสงค์เพื่อจำลองกระบวนการทำงานแบบ end-to-end ดังนี้:
+- Python / FastAPI / SQLAlchemy
+- React / Vite / Recharts
+- PostgreSQL / SQLite
+- Machine Learning / Random Forest
+- Docker Compose / API Design
 
-- สร้างชุดข้อมูลสมมุติสำหรับสภาพแวดล้อมทางสาธารณสุข
-- จัดการข้อมูลเชิงพื้นที่และสภาพอากาศ
-- ฝึกโมเดลเพื่อพยากรณ์จำนวนผู้ป่วยในแต่ละอำเภอ
-- สร้าง REST API สำหรับส่งข้อมูลและผลการพยากรณ์
-- แสดงผลบน Dashboard เพื่อให้เห็นความเสี่ยงและแนวโน้ม
+## Presentation Page
 
-## วิธีเริ่มต้นใช้งาน
+คุณสามารถเปิดหน้า presentation แบบสั้น ๆ ได้ที่:
 
-### 1) Clone และเปิดโปรเจค
+- [docs/portfolio-landing.html](docs/portfolio-landing.html)
+
+## Quick Start
+
+### 1) Clone Repository
 
 ```bash
 git clone https://github.com/prapan34-hue/senior-full-stack-developer-data-scientist.git
 cd senior-full-stack-developer-data-scientist
 ```
 
-### 2) เริ่มต้นโครงการ Chonburi Dengue Watch
+### 2) Run Chonburi Dengue Watch
 
 ```powershell
 cd chonburi-dengue-watch/backend
@@ -77,15 +82,13 @@ python -m app.ml.train
 uvicorn app.main:app --reload --port 8000
 ```
 
-เปิด Frontend:
-
 ```powershell
 cd ../frontend
 pnpm install
 pnpm dev
 ```
 
-### 3) เริ่มต้น PostgreSQL Demo
+### 3) Run PostgreSQL Sample
 
 ```powershell
 cd ../postgresql-fastapi/postgresql
@@ -97,18 +100,18 @@ docker compose up -d
 uvicorn app.main:app --reload --port 8000
 ```
 
-## ข้อควรทราบ
+## Notes
 
-ข้อมูลในโครงการหลักเป็นข้อมูลที่สร้างขึ้นเพื่อการสาธิตและการนำเสนอเท่านั้น ไม่ควรใช้สำหรับตัดสินใจทางด้านสาธารณสุขจริงโดยตรง หากต้องใช้งานในเชิงจริงควรมีข้อมูลจริง การตรวจสอบทางวิชาการ และการร่วมมือกับผู้เชี่ยวชาญด้านสุขภาพและสาธารณสุข
+ข้อมูลในโครงการหลักเป็นข้อมูลจำลองเพื่อการสาธิต การทดลอง และการนำเสนอเท่านั้น
+ไม่ควรใช้เป็นฐานข้อมูลเชิงปฏิบัติจริงสำหรับตัดสินใจทางสุขภาพหรือสาธารณสุขโดยตรง หากต้องใช้งานจริงควรมีข้อมูลจริง การตรวจสอบทางวิชาการ และการร่วมมือกับผู้เชี่ยวชาญที่เกี่ยวข้อง
 
-## สรุป
+## Summary
 
-Repository นี้สะท้อนถึงแนวทางการทำงานแบบ multidisciplinary ที่ผสานระหว่าง:
+Repository นี้แสดงให้เห็นถึงความสามารถต่อเนื่องใน 4 ด้านสำคัญ:
 
-- Data Science
-- Full-Stack Engineering
-- Frontend Design
-- API Architecture
-- Business Intelligence และ Presentation
+- Backend Engineering
+- Frontend Development
+- Data Science / ML
+- Product Presentation
 
-เหมาะอย่างยิ่งสำหรับการใช้เป็น portfolio project หรือเอกสารประกอบการนำเสนอในระดับนักพัฒนาหรือผู้เชี่ยวชาญด้านข้อมูล
+ซึ่งเหมาะสำหรับใช้เป็น portfolio project ในการสมัครงาน หรือการนำเสนอผลงานต่อผู้ชม
