@@ -3,22 +3,47 @@ __pycache__/
 *.py[cod]
 *.pyo
 *.pyd
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
 .venv/
 venv/
+env/
 ENV/
 
-# Environment files
+# Node / frontend
+node_modules/
+dist/
+build/
+.parcel-cache/
+*.tsbuildinfo
+
+# Environment / secrets
 .env
 .env.*
 !.env.example
 
-# IDE/editor
+# OS / editor
+.DS_Store
+Thumbs.db
 .vscode/
 .idea/
 
-# OS
-.DS_Store
-Thumbs.db
+# Logs / coverage
+*.log
+coverage/
+htmlcov/
+.pytest_cache/
 
-# Notebook outputs
+# Jupyter
 .ipynb_checkpoints/
+
+# Local archives
+*.zip
+*.tar
+*.gz
+
+# Optional local app data
+*.sqlite3
+*.db
