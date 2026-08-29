@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+:root { font-family: Inter, "Noto Sans Thai", system-ui, sans-serif; color: #16314a; background: #f4f8fb; }
+body { margin: 0; min-width: 1180px; }
+button, input, select { font: inherit; }
+.card { background: white; border: 1px solid #e3edf5; border-radius: 18px; box-shadow: 0 8px 30px rgba(29, 78, 116, .06); }
+.field { width: 100%; border: 1px solid #d8e5ef; background: #fbfdff; border-radius: 10px; padding: 10px 12px; outline: none; }
+.field:focus { border-color: #268bc7; box-shadow: 0 0 0 3px rgba(38, 139, 199, .12); }
