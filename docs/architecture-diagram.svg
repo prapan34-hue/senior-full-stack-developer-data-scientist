@@ -1,0 +1,85 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">System architecture overview</title>
+  <desc id="desc">Diagram showing frontend, API layer, database, model, and data generator for the dengue monitoring project.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1">
+      <stop offset="0%" stop-color="#f8fbff"/>
+      <stop offset="100%" stop-color="#eef6ff"/>
+    </linearGradient>
+    <linearGradient id="cardBlue" x1="0" x2="1">
+      <stop offset="0%" stop-color="#e0f2fe"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
+    </linearGradient>
+    <linearGradient id="cardGreen" x1="0" x2="1">
+      <stop offset="0%" stop-color="#dcfce7"/>
+      <stop offset="100%" stop-color="#bbf7d0"/>
+    </linearGradient>
+    <linearGradient id="cardOrange" x1="0" x2="1">
+      <stop offset="0%" stop-color="#ffedd5"/>
+      <stop offset="100%" stop-color="#fed7aa"/>
+    </linearGradient>
+    <linearGradient id="cardPurple" x1="0" x2="1">
+      <stop offset="0%" stop-color="#ede9fe"/>
+      <stop offset="100%" stop-color="#ddd6fe"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 z" fill="#475569"/>
+    </marker>
+    <style>
+      .title { font: 700 30px 'Segoe UI', sans-serif; fill: #0f172a; }
+      .label { font: 600 22px 'Segoe UI', sans-serif; fill: #0f172a; }
+      .small { font: 500 16px 'Segoe UI', sans-serif; fill: #475569; }
+      .box { stroke: #cbd5e1; stroke-width: 2; rx: 20; }
+      .arrow { stroke: #475569; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .chip { fill: #ffffff; stroke: #cbd5e1; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="700" fill="url(#bg)"/>
+  <text x="600" y="60" text-anchor="middle" class="title">System Architecture Overview</text>
+
+  <rect x="60" y="120" width="180" height="120" class="box" fill="url(#cardBlue)"/>
+  <text x="150" y="175" text-anchor="middle" class="label">User</text>
+  <text x="150" y="205" text-anchor="middle" class="small">Operator / Analyst</text>
+
+  <rect x="330" y="120" width="220" height="120" class="box" fill="url(#cardGreen)"/>
+  <text x="440" y="175" text-anchor="middle" class="label">React UI</text>
+  <text x="440" y="205" text-anchor="middle" class="small">Dashboard + Input Form</text>
+
+  <rect x="640" y="120" width="240" height="120" class="box" fill="url(#cardOrange)"/>
+  <text x="760" y="175" text-anchor="middle" class="label">FastAPI Backend</text>
+  <text x="760" y="205" text-anchor="middle" class="small">Prediction + Dashboard APIs</text>
+
+  <rect x="960" y="120" width="180" height="120" class="box" fill="url(#cardPurple)"/>
+  <text x="1050" y="175" text-anchor="middle" class="label">ML Model</text>
+  <text x="1050" y="205" text-anchor="middle" class="small">RandomForest</text>
+
+  <rect x="420" y="360" width="360" height="180" class="box" fill="#ffffff"/>
+  <text x="600" y="410" text-anchor="middle" class="label">Database Layer</text>
+  <text x="600" y="448" text-anchor="middle" class="small">SQLite / PostgreSQL</text>
+  <line x1="600" y1="470" x2="600" y2="500" class="chip" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="600" y="525" text-anchor="middle" class="small">Observations / Risk Records / District Data</text>
+
+  <rect x="80" y="380" width="240" height="150" class="box" fill="#ffffff"/>
+  <text x="200" y="435" text-anchor="middle" class="label">Data Generator</text>
+  <text x="200" y="468" text-anchor="middle" class="small">Synthetic dengue</text>
+  <text x="200" y="492" text-anchor="middle" class="small">weather and district data</text>
+
+  <line x1="240" y1="240" x2="330" y2="180" class="arrow"/>
+  <line x1="550" y1="180" x2="640" y2="180" class="arrow"/>
+  <line x1="880" y1="180" x2="960" y2="180" class="arrow"/>
+
+  <line x1="760" y1="240" x2="760" y2="330" class="arrow"/>
+  <line x1="760" y1="330" x2="600" y2="360" class="arrow"/>
+  <line x1="600" y1="360" x2="600" y2="330" class="arrow"/>
+  <line x1="200" y1="380" x2="420" y2="440" class="arrow"/>
+  <line x1="200" y1="330" x2="200" y2="380" class="arrow"/>
+
+  <g>
+    <rect x="890" y="330" width="220" height="95" class="box" fill="#e2e8f0"/>
+    <text x="1000" y="368" text-anchor="middle" class="label">Feature Pipeline</text>
+    <text x="1000" y="395" text-anchor="middle" class="small">Weather + Cases + District Signals</text>
+  </g>
+
+  <line x1="1000" y1="280" x2="1000" y2="330" class="arrow"/>
+</svg>
