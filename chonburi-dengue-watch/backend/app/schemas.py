@@ -49,6 +49,13 @@ class PredictionIn(BaseModel):
             raise ValueError("invalid district")
         return value
 
+    @field_validator("weather_condition")
+    @classmethod
+    def valid_weather(cls, value: str) -> str:
+        if value not in WEATHER_OPTIONS:
+            raise ValueError("unsupported weather condition")
+        return value
+
 
 class PredictionOut(BaseModel):
     district: str

@@ -3,83 +3,81 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Senior Full-Stack Developer / Data Scientist</title>
+  <title>การวิเคราะห์ข้อมูลการระบาดของโรคไข้เลือดในพื้นที่จังหวัดชลบุรี | Executive Research Dashboard</title>
   <style>
     :root {
-      --bg: #040b14;
-      --bg-2: #0b1325;
-      --panel: rgba(15, 23, 42, 0.82);
-      --panel-soft: rgba(15, 118, 110, 0.12);
-      --line: rgba(148, 163, 184, 0.18);
-      --text: #e2e8f0;
-      --muted: #a6b3c7;
-      --accent: #67e8f9;
-      --accent-2: #8b5cf6;
-      --success: #86efac;
-      --gold: #fbbf24;
-      --shadow: rgba(15, 23, 42, 0.55);
+      --bg: #f5f7fb;
+      --bg-2: #eef2f7;
+      --panel: rgba(255, 255, 255, 0.92);
+      --line: rgba(15, 23, 42, 0.08);
+      --text: #0f172a;
+      --muted: #4f5f75;
+      --accent: #111827;
+      --accent-2: #4f46e5;
+      --success: #1d4ed8;
+      --gold: #b7791f;
+      --shadow: rgba(15, 23, 42, 0.07);
     }
 
     * { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
       font-family: "Segoe UI", Tahoma, sans-serif;
       background:
-        radial-gradient(circle at top left, rgba(103, 232, 249, 0.15), transparent 24%),
-        radial-gradient(circle at top right, rgba(139, 92, 246, 0.14), transparent 22%),
-        linear-gradient(180deg, var(--bg) 0%, #071827 32%, var(--bg-2) 100%);
+        radial-gradient(circle at top left, rgba(79, 70, 229, 0.08), transparent 18%),
+        radial-gradient(circle at top right, rgba(15, 118, 110, 0.05), transparent 22%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
       color: var(--text);
       line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    .ambient {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(95px);
+      opacity: 0.58;
+      pointer-events: none;
+      animation: float 12s ease-in-out infinite alternate;
+      z-index: 0;
+    }
+
+    .ambient.one {
+      width: 280px; height: 280px; background: rgba(79, 70, 229, 0.08); top: 120px; left: -60px;
+    }
+
+    .ambient.two {
+      width: 320px; height: 320px; background: rgba(15, 118, 110, 0.06); right: -80px; top: 180px; animation-delay: 1.4s;
+    }
+
+    .ambient.three {
+      width: 260px; height: 260px; background: rgba(14, 165, 233, 0.05); left: 40%; bottom: 160px; animation-delay: 2.2s;
+    }
+
+    @keyframes float {
+      0% { transform: translate3d(0, 0, 0) scale(1); }
+      100% { transform: translate3d(20px, -18px, 0) scale(1.08); }
     }
 
     .container {
       width: min(1180px, calc(100% - 40px));
       margin: 0 auto;
+      position: relative;
+      z-index: 1;
     }
 
     .hero {
-      padding: 80px 0 50px;
+      padding: 70px 0 40px;
       position: relative;
-    }
-
-    .hero::before,
-    .hero::after {
-      content: "";
-      position: absolute;
-      width: 340px;
-      height: 340px;
-      border-radius: 50%;
-      filter: blur(80px);
-      opacity: 0.5;
-      z-index: 0;
-    }
-
-    .hero::before {
-      background: rgba(103, 232, 249, 0.22);
-      left: -40px;
-      top: 40px;
-    }
-
-    .hero::after {
-      background: rgba(139, 92, 246, 0.18);
-      right: -10px;
-      top: 100px;
-    }
-
-    .hero-inner {
-      position: relative;
-      z-index: 1;
     }
 
     .topbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 18px 0 30px;
-      color: var(--text);
+      padding: 18px 0 28px;
     }
 
     .brand {
@@ -91,34 +89,29 @@
     }
 
     .brand-mark {
-      width: 38px;
-      height: 38px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      display: grid;
-      place-items: center;
-      color: #091522;
-      font-weight: 800;
+      width: 38px; height: 38px; border-radius: 12px;
+      background: linear-gradient(135deg, #0f172a, #4f46e5);
+      display: grid; place-items: center;
+      color: #f8fafc; font-weight: 800;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
     }
 
     .nav {
-      display: flex;
-      gap: 18px;
-      color: var(--muted);
-      font-size: 0.95rem;
+      display: flex; gap: 18px; color: var(--muted); font-size: 0.95rem;
     }
 
-    .nav a {
-      color: inherit;
-      text-decoration: none;
+    .nav a { color: inherit; text-decoration: none; }
+
+    .nav a:hover {
+      color: var(--text);
     }
 
     .badge {
       display: inline-flex;
       align-items: center;
-      background: rgba(103, 232, 249, 0.10);
-      border: 1px solid rgba(103, 232, 249, 0.35);
-      color: var(--accent);
+      background: rgba(10, 18, 32, 0.04);
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      color: var(--muted);
       padding: 8px 14px;
       border-radius: 999px;
       font-size: 11px;
@@ -135,10 +128,8 @@
     }
 
     .highlight {
-      background: linear-gradient(135deg, var(--accent), #c4b5fd 52%, #d9f99d);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+      background: linear-gradient(135deg, #0f172a, #4f46e5 58%, #0f766e);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
     }
 
     .subtitle {
@@ -163,18 +154,21 @@
       font-weight: 700;
       display: inline-flex;
       align-items: center;
-      transition: transform 0.2s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .cta:hover { transform: translateY(-1px); }
+    .cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(103, 232, 249, 0.18);
+    }
 
     .cta.primary {
-      background: linear-gradient(135deg, var(--accent), #c4b5fd);
-      color: #03131d;
+      background: linear-gradient(135deg, #0f172a, #4f46e5);
+      color: #f8fafc;
     }
 
     .cta.secondary {
-      background: rgba(148, 163, 184, 0.08);
+      background: rgba(15, 23, 42, 0.02);
       border: 1px solid var(--line);
       color: var(--text);
     }
@@ -187,11 +181,17 @@
     }
 
     .stat {
-      background: rgba(15, 23, 42, 0.68);
+      background: rgba(255, 255, 255, 0.78);
       border: 1px solid var(--line);
       border-radius: 20px;
       padding: 18px 18px 16px;
-      box-shadow: 0 22px 40px var(--shadow);
+      box-shadow: 0 16px 32px rgba(15, 23, 42, 0.06);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .stat:hover {
+      transform: translateY(-6px);
+      border-color: rgba(103, 232, 249, 0.4);
     }
 
     .stat .label {
@@ -215,7 +215,7 @@
     }
 
     .section {
-      padding: 36px 0 60px;
+      padding: 40px 0 60px;
     }
 
     .showcase {
@@ -231,6 +231,13 @@
       border-radius: 28px;
       overflow: hidden;
       box-shadow: 0 24px 50px rgba(15, 23, 42, 0.42);
+      transform: perspective(1200px) rotateX(2deg) rotateY(-4deg);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .preview:hover {
+      transform: perspective(1200px) rotateX(0deg) rotateY(0deg) translateY(-8px);
+      box-shadow: 0 36px 60px rgba(15, 23, 42, 0.56);
     }
 
     .preview img {
@@ -239,11 +246,22 @@
     }
 
     .feature-panel {
-      background: linear-gradient(180deg, rgba(15, 118, 110, 0.16), rgba(15, 23, 42, 0.92));
+      background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(248,250,252,0.98));
       border: 1px solid var(--line);
       border-radius: 24px;
-      padding: 26px;
-      box-shadow: 0 25px 45px rgba(2, 6, 23, 0.35);
+      padding: 28px;
+      box-shadow: 0 26px 48px rgba(15, 23, 42, 0.06);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto auto 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(15,23,42,0.9), rgba(79,70,229,0.55), transparent);
     }
 
     .feature-panel h2 {
@@ -257,6 +275,138 @@
       color: var(--muted);
     }
 
+    .case-study {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .story-panel {
+      background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(247,249,252,0.98));
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: 0 24px 46px rgba(15, 23, 42, 0.065);
+    }
+
+    .story-panel h2 {
+      margin: 0 0 16px;
+      font-size: clamp(2.1rem, 3vw, 3rem);
+      letter-spacing: -0.05em;
+    }
+
+    .story-panel p {
+      margin: 0 0 18px;
+      color: var(--muted);
+    }
+
+    .luxury-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+      margin-bottom: 10px;
+    }
+
+    .luxury-tag {
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      background: rgba(255, 255, 255, 0.72);
+      color: var(--muted);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .mini-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .mini-card {
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 14px 16px;
+    }
+
+    .mini-card .kicker {
+      color: var(--muted);
+      display: block;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .mini-card strong {
+      display: block;
+      margin-top: 8px;
+      font-size: 1.5rem;
+      letter-spacing: -0.04em;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 16px;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 20px;
+      top: 14px;
+      bottom: 14px;
+      width: 2px;
+      background: linear-gradient(180deg, rgba(103,232,249,0.8), rgba(139,92,246,0.8), rgba(134,239,172,0.6));
+    }
+
+    .timeline-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 18px;
+      align-items: start;
+      background: rgba(255,255,255,0.8);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px 18px 18px 14px;
+      min-height: 116px;
+    }
+
+    .step-index {
+      position: relative;
+      z-index: 1;
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      color: #06161d;
+      background: linear-gradient(135deg, var(--accent), #c4b5fd);
+      box-shadow: 0 12px 24px rgba(103, 232, 249, 0.35);
+    }
+
+    .step {
+      padding-top: 2px;
+    }
+
+    .step h3 {
+      margin: 0 0 8px;
+      font-size: 1.15rem;
+    }
+
+    .step p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
     .stack {
       display: flex;
       flex-wrap: wrap;
@@ -265,9 +415,9 @@
     }
 
     .pill {
-      background: rgba(167, 139, 250, 0.12);
-      border: 1px solid rgba(167, 139, 250, 0.25);
-      color: #ddd6fe;
+      background: rgba(15, 23, 42, 0.04);
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      color: #334155;
       padding: 8px 12px;
       border-radius: 999px;
       font-size: 0.75rem;
@@ -281,19 +431,22 @@
     }
 
     .project-card {
-      background: rgba(15, 23, 42, 0.8);
+      background: rgba(255,255,255,0.85);
       border: 1px solid var(--line);
       border-radius: 22px;
       padding: 22px;
-      box-shadow: 0 20px 36px rgba(15, 23, 42, 0.28);
+      box-shadow: 0 18px 30px rgba(15, 23, 42, 0.06);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(103, 232, 249, 0.4);
     }
 
     .project-card .icon {
-      width: 46px;
-      height: 46px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
+      width: 46px; height: 46px; border-radius: 14px;
+      display: grid; place-items: center;
       margin-bottom: 16px;
       font-size: 1.2rem;
       background: linear-gradient(135deg, rgba(103,232,249,0.15), rgba(139,92,246,0.18));
@@ -315,7 +468,7 @@
       margin-top: 28px;
       padding: 22px 26px;
       border-radius: 24px;
-      background: linear-gradient(135deg, rgba(103,232,249,0.08), rgba(15,23,42,0.80));
+      background: linear-gradient(135deg, rgba(15,23,42,0.03), rgba(79,70,229,0.05));
       border: 1px solid var(--line);
       display: flex;
       justify-content: space-between;
@@ -324,137 +477,682 @@
       flex-wrap: wrap;
     }
 
-    .summary-strip strong {
-      font-size: 1.15rem;
+    .summary-strip strong { font-size: 1.15rem; }
+
+    .upload-panel {
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr;
+      gap: 24px;
+      align-items: stretch;
+      background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(247,249,252,0.98));
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 26px;
+      box-shadow: 0 26px 48px rgba(15, 23, 42, 0.06);
+    }
+
+    .upload-copy h2 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      letter-spacing: -0.05em;
+    }
+
+    .upload-copy p {
+      margin: 0 0 18px;
+      color: var(--muted);
+    }
+
+    .upload-box {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 150px;
+      border: 1.5px dashed rgba(79, 70, 229, 0.4);
+      background: linear-gradient(135deg, rgba(79,70,229,0.04), rgba(15,118,110,0.04));
+      border-radius: 22px;
+      overflow: hidden;
+    }
+
+    .upload-box input[type="file"] {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    .upload-label {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 20px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #0f172a, #4f46e5);
+      color: #fff;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      box-shadow: 0 18px 32px rgba(79, 70, 229, 0.2);
+    }
+
+    .file-meta {
+      margin-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .upload-preview {
+      display: grid;
+      gap: 12px;
+    }
+
+    .upload-status {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .upload-table-wrap {
+      margin-top: 22px;
+      overflow: auto;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.85);
+      box-shadow: 0 18px 30px rgba(15, 23, 42, 0.05);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 520px;
+    }
+
+    th, td {
+      padding: 10px 12px;
+      text-align: left;
+      border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+      font-size: 0.88rem;
+      vertical-align: top;
+    }
+
+    th {
+      background: rgba(15, 23, 42, 0.04);
+      color: var(--text);
+      position: sticky;
+      top: 0;
+    }
+
+    .upload-stat {
+      background: rgba(255,255,255,0.82);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px 18px;
+    }
+
+    .upload-stat span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .upload-stat strong {
+      font-size: 1.3rem;
+      letter-spacing: -0.04em;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .mockup-wrap {
+      background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(247,249,252,0.96));
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      padding: 18px;
+      box-shadow: 0 28px 50px rgba(15, 23, 42, 0.08);
+      transform: perspective(1200px) rotateX(2deg);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .mockup-wrap:hover {
+      transform: perspective(1200px) rotateX(0deg) translateY(-6px);
+      box-shadow: 0 38px 60px rgba(2, 6, 23, 0.42);
+    }
+
+    .mockup-wrap img {
+      display: block; width: 100%; border-radius: 18px;
     }
 
     @media (max-width: 900px) {
-      .stats, .project-grid, .showcase {
-        grid-template-columns: 1fr;
-      }
-      .nav {
-        display: none;
-      }
+      .stats, .project-grid, .showcase, .case-study { grid-template-columns: 1fr; }
+      .nav { display: none; }
+      .timeline::before { display: none; }
     }
   </style>
 </head>
 <body>
-  <div class="container hero">
-    <div class="hero-inner">
-      <div class="topbar">
-        <div class="brand">
-          <div class="brand-mark">S</div>
-          <span>Portfolio</span>
-        </div>
-        <nav class="nav">
-          <a href="#overview">Overview</a>
-          <a href="#projects">Projects</a>
-          <a href="#skills">Skills</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </div>
+  <div class="ambient one"></div>
+  <div class="ambient two"></div>
+  <div class="ambient three"></div>
 
-      <div class="badge">Portfolio Showcase</div>
-      <h1>Senior <span class="highlight">Full-Stack Developer</span><br/>and Data Scientist</h1>
+  <div class="container hero">
+    <div class="topbar reveal">
+      <div class="brand">
+        <div class="brand-mark">C</div>
+        <span>Chonburi Health Analytics</span>
+      </div>
+      <nav class="nav">
+        <a href="#overview">ภาพรวม</a>
+        <a href="#analysis">วิเคราะห์</a>
+        <a href="#risk">ความเสี่ยง</a>
+        <a href="#summary">สรุป</a>
+      </nav>
+    </div>
+
+    <div class="reveal">
+      <div class="badge">Executive Research Brief</div>
+      <h1>การวิเคราะห์ข้อมูล <span class="highlight">การระบาดของโรคไข้เลือด</span><br/>ในพื้นที่จังหวัดชลบุรี</h1>
       <p class="subtitle">
-        ผมสร้างระบบที่เชื่อมจากข้อมูลไปสู่การวิเคราะห์ โมเดลทาง AI และการแสดงผลบน Dashboard
-        เพื่อให้เห็นศักยภาพในการทำงานแบบ end-to-end สำหรับการนำเสนอผลงานต่อผู้ชมและผู้มีส่วนได้ส่วนเสีย
+        รายงานเชิงวิจัยฉบับนี้นำเสนอการวิเคราะห์ข้อมูลการระบาดของโรคไข้เลือดในพื้นที่จังหวัดชลบุรี เพื่อประเมินรูปแบบการแพร่กระจาย ความสัมพันธ์เชิงพื้นที่ และแนวโน้มความเสี่ยงทางสาธารณสุข โดยมุ่งเน้นการสนับสนุนการเฝ้าระวัง การจัดลำดับความเสี่ยง และการวางแผนควบคุมโรคอย่างเป็นระบบ
       </p>
 
-      <div class="cta-row">
-        <a class="cta primary" href="https://github.com/prapan34-hue/senior-full-stack-developer-data-scientist" target="_blank">View GitHub</a>
-        <a class="cta secondary" href="#projects">See Projects</a>
+      <div class="luxury-tags">
+        <span class="luxury-tag">Disease Surveillance</span>
+        <span class="luxury-tag">Spatial Epidemiology</span>
+        <span class="luxury-tag">Risk Assessment</span>
       </div>
 
-      <div class="stats" id="overview">
-        <div class="stat">
-          <div class="label">Projects</div>
-          <div class="value">3</div>
-          <div class="small">Core portfolio items</div>
-        </div>
-        <div class="stat">
-          <div class="label">Stack</div>
-          <div class="value">5+</div>
-          <div class="small">Modern technologies</div>
-        </div>
-        <div class="stat">
-          <div class="label">Focus</div>
-          <div class="value">AI</div>
-          <div class="small">Prediction & insight</div>
-        </div>
-        <div class="stat">
-          <div class="label">Delivery</div>
-          <div class="value">End-to-End</div>
-          <div class="small">From data to UI</div>
-        </div>
+      <div class="cta-row">
+        <a class="cta primary" href="https://github.com/prapan34-hue/senior-full-stack-developer-data-scientist" target="_blank">ดู Repository</a>
+        <a class="cta secondary" href="#analysis">ดูผลวิเคราะห์</a>
+      </div>
+    </div>
+
+    <div class="stats reveal" id="overview">
+      <div class="stat">
+        <div class="label">พื้นที่</div>
+        <div class="value">ชลบุรี</div>
+        <div class="small">จังหวัดเป้าหมาย</div>
+      </div>
+      <div class="stat">
+        <div class="label">สารสนเทศ</div>
+        <div class="value">เชิงพื้นที่</div>
+        <div class="small">การวิเคราะห์เชิงภูมิศาสตร์</div>
+      </div>
+      <div class="stat">
+        <div class="label">การเฝ้าระวัง</div>
+        <div class="value">Real-time</div>
+        <div class="small">การติดตามความเสี่ยง</div>
+      </div>
+      <div class="stat">
+        <div class="label">ประเมินผล</div>
+        <div class="value">แนวโน้ม</div>
+        <div class="small">การระบาดและการตอบสนอง</div>
       </div>
     </div>
   </div>
 
-  <div class="container section">
+  <div class="container section reveal" id="analysis">
     <div class="showcase">
       <div class="preview">
         <img src="dashboard-preview-1.svg" alt="Dashboard preview" />
       </div>
       <div class="feature-panel">
-        <div class="badge">Featured</div>
-        <h2>Dashboard สำหรับติดตามสถานการณ์</h2>
+        <div class="badge">Research Focus</div>
+        <h2>การสำรวจข้อมูลการระบาดของโรคไข้เลือดในพื้นที่จังหวัดชลบุรี</h2>
         <p>
-          โปรเจคหลักแสดงให้เห็นความสามารถในการวิเคราะห์ข้อมูล, การคำนวณความเสี่ยง และการนำเสนอผลลัพธ์แบบ interactive
-          ให้คนใช้งานเข้าใจสถานการณ์ได้อย่างรวดเร็วและชัดเจน
+          โครงการนี้มุ่งเน้นการวิเคราะห์ข้อมูลเชิงสถิติและเชิงพื้นที่ของการระบาดของโรคไข้เลือดในจังหวัดชลบุรี โดยประยุกต์ใช้แนวทางการสำรวจข้อมูล การจัดหมวดหมู่เชิงภูมิศาสตร์ และการประเมินความเสี่ยง เพื่อให้เห็นความสัมพันธ์ระหว่างบริเวณพื้นที่กับแนวโน้มการเกิดโรคและระดับความเสี่ยงต่อการระบาด
         </p>
         <div class="stack">
-          <span class="pill">React</span>
-          <span class="pill">FastAPI</span>
-          <span class="pill">Forecasting</span>
-          <span class="pill">Monitoring</span>
+          <span class="pill">Dengue Incidence</span>
+          <span class="pill">Spatial Monitoring</span>
+          <span class="pill">Risk Mapping</span>
+          <span class="pill">Trend Analysis</span>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="container section" id="projects">
-    <div class="badge">Projects</div>
+  <div class="container section reveal" id="risk">
+    <div class="badge">Executive Findings</div>
+    <div class="case-study">
+      <div class="story-panel">
+        <h2>จากข้อมูลสู่การประเมินความเสี่ยงต่อการระบาด</h2>
+        <p>
+          การวิเคราะห์นี้แปลงข้อมูลการระบาดของโรคไข้เลือดในพื้นที่จังหวัดชลบุรี ให้กลายเป็นสารสนเทศเชิงยุทธศาสตร์สำหรับการเฝ้าระวังและการวางแผนป้องกัน โดยพิจารณาแนวโน้มจำนวนผู้ป่วย ความผันแปรตามพื้นที่ และรูปแบบเชิงสถิติที่สะท้อนระดับความเสี่ยงของการระบาดในช่วงเวลาและเขตพื้นที่ต่าง ๆ
+        </p>
+        <div class="mini-metrics">
+          <div class="mini-card">
+            <span class="kicker">ข้อมูล</span>
+            <strong>รายวัน</strong>
+          </div>
+          <div class="mini-card">
+            <span class="kicker">พื้นที่</span>
+            <strong>ชลบุรี</strong>
+          </div>
+          <div class="mini-card">
+            <span class="kicker">การวิเคราะห์</span>
+            <strong>เชิงพื้นที่</strong>
+          </div>
+          <div class="mini-card">
+            <span class="kicker">ผลลัพธ์</span>
+            <strong>เฝ้าระวัง</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="step-index">01</div>
+          <div class="step">
+            <h3>รวบรวมข้อมูลการระบาด</h3>
+            <p>จัดเก็บและประมวลผลข้อมูลการเกิดโรคไข้เลือดเพื่อสร้างฐานข้อมูลที่ใช้สำหรับวิเคราะห์แนวโน้มและรูปแบบการแพร่กระจาย</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="step-index">02</div>
+          <div class="step">
+            <h3>สำรวจรูปแบบการแพร่กระจาย</h3>
+            <p>วิเคราะห์ความแตกต่างของความเสี่ยงตามพื้นที่และช่วงเวลา เพื่อระบุเขตที่มีการระบาดสูงและต้องเฝ้าระวังเป็นพิเศษ</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="step-index">03</div>
+          <div class="step">
+            <h3>ประเมินแนวโน้มและความเสี่ยง</h3>
+            <p>ใช้เทคนิคการวิเคราะห์เชิงสถิติและการพยากรณ์เพื่อประเมินแนวโน้มการเกิดโรคและความต้องการของการตอบสนองเชิงป้องกัน</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="step-index">04</div>
+          <div class="step">
+            <h3>สรุปผลใน Dashboard</h3>
+            <p>นำผลการวิเคราะห์จัดแสดงในรูปแบบ Dashboard ที่ช่วยให้เห็นภาพรวมเชิงพื้นที่และระดับความเสี่ยงได้อย่างชัดเจนและรวดเร็ว</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container section reveal" id="projects">
+    <div class="badge">Research Dimensions</div>
     <div class="project-grid">
       <div class="project-card">
         <div class="icon">🩺</div>
-        <h3>Chonburi Dengue Watch</h3>
-        <p>ระบบเฝ้าระวังและพยากรณ์โรคไข้เลือดออกในจังหวัดชลบุรีแบบ end-to-end พร้อม dashboard และ backend service</p>
+        <h3>การเฝ้าระวังโรคไข้เลือด</h3>
+        <p>วิเคราะห์ข้อมูลการระบาดในพื้นที่จังหวัดชลบุรี เพื่อสังเกตแนวโน้มและภาพรวมความเสี่ยงเชิงพื้นที่อย่างต่อเนื่อง</p>
       </div>
       <div class="project-card">
-        <div class="icon">🗄️</div>
-        <h3>PostgreSQL + FastAPI</h3>
-        <p>แสดงความสามารถในการออกแบบ API และเชื่อมต่อกับฐานข้อมูล PostgreSQL สำหรับงานที่ต้องการความโปร่งใสและความเป็นระบบ</p>
+        <div class="icon">📈</div>
+        <h3>การวิเคราะห์เชิงสถิติ</h3>
+        <p>ประเมินรูปแบบการเกิดโรคตามช่วงเวลาและพื้นที่ เพื่อจัดลำดับความเสี่ยงและกำหนดแนวทางในการติดตามอย่างมีประสิทธิภาพ</p>
       </div>
       <div class="project-card">
-        <div class="icon">📊</div>
-        <h3>React Dashboard District Filter</h3>
-        <p>แสดงโครงสร้างหน้า dashboard ที่มีการกรองข้อมูลรายอำเภอและการนำเสนอภาพรวมเชิงพื้นที่ที่อ่านง่าย</p>
+        <div class="icon">🗺️</div>
+        <h3>การสำรวจพื้นที่</h3>
+        <p>สำรวจข้อมูลตามพื้นที่จังหวัดชลบุรี เพื่อระบุบริเวณที่มีความเสี่ยงสูงและต้องได้รับการเฝ้าระวังเป็นพิเศษ</p>
       </div>
       <div class="project-card">
         <div class="icon">🤖</div>
-        <h3>Data + AI Workflow</h3>
-        <p>การจัดการข้อมูล, feature engineering, model training และการสรุปผลให้เห็นเป็น workflow ที่นำเสนอได้ชัดเจน</p>
+        <h3>AI และการพยากรณ์</h3>
+        <p>ใช้เทคนิคการวิเคราะห์และการพยากรณ์เพื่ออธิบายแนวโน้มการระบาดของโรคไข้เลือดและสนับสนุนการวางแผนป้องกัน</p>
       </div>
     </div>
 
-    <div class="summary-strip" id="skills">
-      <strong>Core capabilities</strong>
-      <span>Python • FastAPI • React • SQL • Machine Learning • Dashboard Design</span>
+    <div class="summary-strip reveal" id="skills">
+      <strong>เทคนิคและเครื่องมือ</strong>
+      <span>Python • Data Analysis • Machine Learning • Dashboard • Public Health Surveillance • Spatial Epidemiology</span>
     </div>
   </div>
 
-  <div class="container section" id="contact">
-    <div class="badge">Contact</div>
+  <div class="container section reveal">
+    <div class="badge">Dashboard Presentation</div>
+    <div class="mockup-wrap">
+      <img src="recruiter-dashboard-mockup.svg" alt="Recruiter dashboard mockup" />
+    </div>
+  </div>
+
+  <div class="container section reveal" id="upload">
+    <div class="badge">CSV Data Upload</div>
+    <div class="upload-panel">
+      <div class="upload-copy">
+        <h2>อัปโหลดไฟล์ข้อมูล CSV สำหรับการวิเคราะห์</h2>
+        <p>
+          ระบบนี้รองรับการอัปโหลดไฟล์ข้อมูลการระบาดของโรคไข้เลือดเพื่อใช้ในการวิเคราะห์เชิงพื้นที่ เชิงสถิติ และการประเมินความเสี่ยงในพื้นที่จังหวัดชลบุรี
+        </p>
+
+        <div class="upload-box">
+          <input id="csvUpload" type="file" accept=".csv,text/csv" />
+          <label for="csvUpload" class="upload-label">เลือกไฟล์ CSV</label>
+        </div>
+
+        <div class="file-meta">
+          <span id="fileName">ยังไม่มีไฟล์ที่เลือก</span>
+          <span id="fileMeta">ขนาดไฟล์และจำนวนคอลัมน์จะแสดงที่นี่</span>
+        </div>
+      </div>
+
+      <div class="upload-preview">
+        <div class="upload-stat">
+          <span>ชนิดไฟล์</span>
+          <strong id="fileType">CSV</strong>
+        </div>
+        <div class="upload-stat">
+          <span>จำนวนแถวข้อมูล</span>
+          <strong id="rowCount">0</strong>
+        </div>
+        <div class="upload-stat">
+          <span>จำนวนคอลัมน์</span>
+          <strong id="columnCount">0</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="upload-status" id="uploadStatus">รอไฟล์ CSV เพื่อเริ่มการวิเคราะห์</div>
+    <div id="csvTableContainer" class="upload-table-wrap" style="display:none;"></div>
+
+    <div id="analyticsPanels" style="display:none; margin-top: 24px; gap: 20px; grid-template-columns: 1.5fr 1fr;">
+      <div class="feature-panel">
+        <div class="badge" style="margin-bottom: 14px;">Trend Analysis</div>
+        <canvas id="trendChart" width="900" height="320"></canvas>
+      </div>
+      <div class="feature-panel">
+        <div class="badge" style="margin-bottom: 14px;">District Heatmap</div>
+        <div id="heatmapContainer" class="heatmap"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container section reveal" id="summary">
+    <div class="badge">Executive Summary</div>
     <div class="feature-panel" style="padding: 30px 26px;">
-      <h2 style="margin-bottom: 8px;">Ready for collaboration and showcase</h2>
+      <h2 style="margin-bottom: 8px;">การวิเคราะห์ข้อมูลการระบาดของโรคไข้เลือดในพื้นที่จังหวัดชลบุรี</h2>
       <p>
-        โปรเจคนี้ถูกออกแบบให้เป็นผลงานที่สามารถนำเสนอได้ทั้งในเชิงความสามารถทางเทคนิคและการสื่อสารข้อมูลเชิงธุรกิจ
+        รายงานฉบับนี้สรุปสถานการณ์การระบาดของโรคไข้เลือดในพื้นที่จังหวัดชลบุรี โดยมุ่งเน้นการวิเคราะห์รูปแบบการเกิดโรค ความสัมพันธ์เชิงพื้นที่ และแนวโน้มความเสี่ยง เพื่อให้เห็นบริเวณที่มีความเปราะบางและสนับสนุนการเฝ้าระวัง รวมถึงการจัดลำดับความสำคัญของการป้องกันในเชิงปฏิบัติ
       </p>
       <div class="cta-row" style="margin-top: 20px;">
-        <a class="cta primary" href="https://github.com/prapan34-hue/senior-full-stack-developer-data-scientist" target="_blank">Open Repository</a>
+        <a class="cta primary" href="https://github.com/prapan34-hue/senior-full-stack-developer-data-scientist" target="_blank">เปิด Repository</a>
       </div>
     </div>
   </div>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.18 });
+
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+    const csvInput = document.getElementById('csvUpload');
+    const fileNameEl = document.getElementById('fileName');
+    const fileMetaEl = document.getElementById('fileMeta');
+    const fileTypeEl = document.getElementById('fileType');
+    const rowCountEl = document.getElementById('rowCount');
+    const columnCountEl = document.getElementById('columnCount');
+    const uploadStatusEl = document.getElementById('uploadStatus');
+    const tableContainer = document.getElementById('csvTableContainer');
+
+    function parseCsvText(text) {
+      const rows = text.split(/\r?\n/).filter(line => line.trim() !== '');
+      if (!rows.length) return { headers: [], records: [] };
+
+      const headers = rows[0].split(',').map(h => h.trim().replace(/"/g, ''));
+      const records = rows.slice(1).map((row) => {
+        const values = row.split(',').map(v => v.trim().replace(/"/g, ''));
+        const obj = {};
+        headers.forEach((header, index) => {
+          obj[header] = values[index] ?? '';
+        });
+        return obj;
+      });
+
+      return { headers, records };
+    }
+
+    function renderTable(headers, records) {
+      if (!headers.length) return;
+
+      const rows = records.slice(0, 8);
+      const table = document.createElement('table');
+      const thead = document.createElement('thead');
+      const headRow = document.createElement('tr');
+
+      headers.forEach((header) => {
+        const th = document.createElement('th');
+        th.textContent = header;
+        headRow.appendChild(th);
+      });
+      thead.appendChild(headRow);
+      table.appendChild(thead);
+
+      const tbody = document.createElement('tbody');
+      rows.forEach((record) => {
+        const tr = document.createElement('tr');
+        headers.forEach((header) => {
+          const td = document.createElement('td');
+          td.textContent = record[header] || '-';
+          tr.appendChild(td);
+        });
+        tbody.appendChild(tr);
+      });
+      table.appendChild(tbody);
+
+      tableContainer.innerHTML = '';
+      tableContainer.appendChild(table);
+      tableContainer.style.display = 'block';
+    }
+
+    function renderTrendChart(data) {
+      const canvas = document.getElementById('trendChart');
+      const ctx = canvas.getContext('2d');
+      const width = canvas.width;
+      const height = canvas.height;
+      const padding = { top: 20, right: 20, bottom: 30, left: 42 };
+      ctx.clearRect(0, 0, width, height);
+
+      const values = data.map(item => item.value);
+      const maxValue = Math.max(...values, 1);
+      const minValue = Math.min(...values, 0);
+      const chartWidth = width - padding.left - padding.right;
+      const chartHeight = height - padding.top - padding.bottom;
+
+      ctx.strokeStyle = 'rgba(148, 163, 184, 0.7)';
+      ctx.lineWidth = 1;
+      for (let i = 0; i <= 4; i++) {
+        const y = padding.top + (chartHeight / 4) * i;
+        ctx.beginPath();
+        ctx.moveTo(padding.left, y);
+        ctx.lineTo(width - padding.right, y);
+        ctx.stroke();
+      }
+
+      ctx.beginPath();
+      ctx.moveTo(padding.left, padding.top);
+      ctx.lineTo(padding.left, height - padding.bottom);
+      ctx.lineTo(width - padding.right, height - padding.bottom);
+      ctx.strokeStyle = '#334155';
+      ctx.stroke();
+
+      if (!data.length) return;
+
+      const points = data.map((item, index) => {
+        const x = padding.left + (index / Math.max(data.length - 1, 1)) * chartWidth;
+        const y = padding.top + chartHeight - ((item.value - minValue) / Math.max(maxValue - minValue || 1, 1)) * chartHeight;
+        return { x, y, value: item.value, label: item.label };
+      });
+
+      ctx.beginPath();
+      points.forEach((point, index) => {
+        if (index === 0) ctx.moveTo(point.x, point.y);
+        else ctx.lineTo(point.x, point.y);
+      });
+      ctx.strokeStyle = '#4f46e5';
+      ctx.lineWidth = 2.5;
+      ctx.stroke();
+
+      ctx.fillStyle = '#4f46e5';
+      points.forEach((point) => {
+        ctx.beginPath();
+        ctx.arc(point.x, point.y, 3.5, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      const labels = points.slice(-5);
+      labels.forEach((point) => {
+        ctx.fillStyle = '#475569';
+        ctx.font = '11px sans-serif';
+        ctx.fillText(String(point.label).slice(5), point.x - 18, height - 10);
+      });
+    }
+
+    function renderHeatmap(items) {
+      const container = document.getElementById('heatmapContainer');
+      container.innerHTML = '';
+      if (!items.length) return;
+
+      items.forEach((item) => {
+        const card = document.createElement('div');
+        card.className = 'heatmap-item';
+        card.innerHTML = `
+          <div class="heatmap-label">${item.district}</div>
+          <div class="heatmap-bar-wrap">
+            <div class="heatmap-bar" style="width:${Math.max(16, item.intensity * 100)}%; background: linear-gradient(90deg, #60a5fa, #1d4ed8);"></div>
+          </div>
+          <div class="heatmap-value">${item.value.toLocaleString()} cases</div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    csvInput.addEventListener('change', async (event) => {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      fileNameEl.textContent = file.name;
+      fileTypeEl.textContent = file.type || 'CSV';
+
+      const text = await file.text();
+      const { headers, records } = parseCsvText(text);
+      const rowCount = records.length;
+      const columnCount = headers.length;
+      const sizeKb = (file.size / 1024).toFixed(1);
+
+      rowCountEl.textContent = rowCount.toLocaleString();
+      columnCountEl.textContent = columnCount.toLocaleString();
+      fileMetaEl.textContent = `${sizeKb} KB • ${rowCount} แถว • ${columnCount} คอลัมน์`;
+      renderTable(headers, records);
+      uploadStatusEl.textContent = 'กำลังส่งข้อมูลไปประมวลผลบน FastAPI...';
+
+      const formData = new FormData();
+      formData.append('file', file);
+
+      try {
+        const response = await fetch('http://localhost:8000/api/upload-csv', {
+          method: 'POST',
+          body: formData,
+        });
+
+        if (!response.ok) {
+          const errorBody = await response.json().catch(() => ({}));
+          throw new Error(errorBody.detail || 'ไม่สามารถประมวลผล CSV ได้');
+        }
+
+        const result = await response.json();
+        uploadStatusEl.textContent = `ประมวลผลสำเร็จ • รวม ${result.summary.total_cases.toLocaleString()} ราย • ${result.summary.rows.toLocaleString()} แถว`;
+
+        const analyticsContainer = document.getElementById('analyticsPanels');
+        analyticsContainer.style.display = 'grid';
+        renderTrendChart(result.analytics?.trend || []);
+        renderHeatmap(result.analytics?.heatmap || []);
+      } catch (err) {
+        uploadStatusEl.textContent = `ไม่สามารถประมวลผลไฟล์ได้: ${err.message}`;
+      }
+    });
+  </script>
+
+  <style>
+    .upload-table-wrap {
+      margin-top: 18px;
+      overflow-x: auto;
+      background: rgba(255, 255, 255, 0.72);
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      box-shadow: 0 14px 28px rgba(15, 23, 42, 0.04);
+    }
+
+    .upload-table-wrap table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    .upload-table-wrap th,
+    .upload-table-wrap td {
+      padding: 12px 14px;
+      text-align: left;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+      vertical-align: top;
+    }
+
+    .upload-table-wrap th {
+      background: rgba(15, 23, 42, 0.04);
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .heatmap {
+      display: grid;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .heatmap-item {
+      display: grid;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(15, 23, 42, 0.02);
+      border: 1px solid rgba(15, 23, 42, 0.06);
+    }
+
+    .heatmap-label {
+      font-weight: 700;
+      font-size: 0.92rem;
+    }
+
+    .heatmap-bar-wrap {
+      height: 10px;
+      background: rgba(148, 163, 184, 0.2);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .heatmap-bar {
+      height: 100%;
+      border-radius: 999px;
+    }
+
+    .heatmap-value {
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+  </style>
 </body>
 </html>

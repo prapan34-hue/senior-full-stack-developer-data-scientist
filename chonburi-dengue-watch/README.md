@@ -69,7 +69,31 @@ chonburi-dengue-watch/
 
 ## เริ่มต้นใช้งาน
 
-### 1) Backend
+### วิธีง่าย: ใช้ launcher
+
+จากโฟลเดอร์ root ให้เปิดไฟล์:
+
+```powershell
+.\run-dengue-dashboard.bat
+```
+
+ซคริปต์นี้จะ:
+- ตรวจหา Node.js และติดตั้งอัตโนมัติถ้ายังไม่มี
+- ติดตั้ง dependency ของ backend และ frontend
+- เริ่ม backend และ frontend พร้อมกันใน terminal เดียว
+- แสดง URL สำหรับ dashboard และ API
+
+### ปิดโปรเจค
+
+กด:
+
+```text
+Ctrl + C
+```
+
+บน terminal ที่เปิด script อยู่ เพื่อปิด backend และ frontend ให้หยุดพร้อมกัน
+
+### 1) Backend (manual)
 
 ```powershell
 cd chonburi-dengue-watch/backend
@@ -84,12 +108,12 @@ uvicorn app.main:app --reload --port 8000
 
 http://localhost:8000/docs
 
-### 2) Frontend
+### 2) Frontend (manual)
 
 ```powershell
 cd chonburi-dengue-watch/frontend
-pnpm install
-pnpm dev
+npm install
+npm run dev -- --host 0.0.0.0 --port 5173
 ```
 
 Frontend จะเชื่อมต่อกับ Backend ที่ http://localhost:8000 เป็นค่าเริ่มต้น

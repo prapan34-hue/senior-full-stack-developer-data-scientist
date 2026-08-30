@@ -70,14 +70,41 @@
 
 ## Quick Start
 
-### 1) Clone Repository
+### Option A: One-click launcher (recommended)
+
+From the project root, run:
+
+```powershell
+.\run-dengue-dashboard.bat
+```
+
+This launcher will:
+- check for Python and Node.js
+- install Node.js automatically if it is missing
+- install backend and frontend dependencies
+- start the backend and frontend together in the same terminal session
+- open the dashboard and API URLs
+
+### Stop the project
+
+Press:
+
+```text
+Ctrl + C
+```
+
+in the same terminal window to stop both services together.
+
+### Option B: Manual run
+
+#### 1) Clone Repository
 
 ```bash
 git clone https://github.com/prapan34-hue/senior-full-stack-developer-data-scientist.git
 cd senior-full-stack-developer-data-scientist
 ```
 
-### 2) Run Chonburi Dengue Watch
+#### 2) Run Chonburi Dengue Watch backend
 
 ```powershell
 cd chonburi-dengue-watch/backend
@@ -88,13 +115,15 @@ python -m app.ml.train
 uvicorn app.main:app --reload --port 8000
 ```
 
+#### 3) Run frontend
+
 ```powershell
 cd ../frontend
-pnpm install
-pnpm dev
+npm install
+npm run dev -- --host 0.0.0.0 --port 5173
 ```
 
-### 3) Run PostgreSQL Sample
+#### 4) Run PostgreSQL sample
 
 ```powershell
 cd ../postgresql-fastapi/postgresql

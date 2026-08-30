@@ -1,4 +1,5 @@
 # Python
+.tools/
 __pycache__/
 *.py[cod]
 *.pyo
